@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Desa Ciderum - Pesona Alam yang Menakjubkan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <a href="index2.html"></a>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/cide.jpeg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimoni-card {
+            transition: all 0.3s ease;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="image/Logo cidereum.png" alt="Logo Desa Ciderum bergambar gunung dan sawah berwarna hijau dengan tulisan 'Ciderum'" class="h-12">
+                    <a href="#" class="ml-3 text-xl font-bold text-green-700">Ciderum<span class="text-yellow-500">Wisata</span></a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-green-700 hover:text-yellow-500">Beranda</a>
+                    <a href="#destinasi" class="text-gray-700 hover:text-yellow-500">Destinasi</a>
+                    <a href="#aktivitas" class="text-gray-700 hover:text-yellow-500">Aktivitas</a>
+                    <a href="#kontak" class="text-gray-700 hover:text-yellow-500">Kontak</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-btn">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-yellow-500">Beranda</a>
+                <a href="#destinasi" class="block py-2 text-gray-700 hover:text-yellow-500">Destinasi</a>
+                <a href="#aktivitas" class="block py-2 text-gray-700 hover:text-yellow-500">Aktivitas</a>
+                <a href="#testimoni" class="block py-2 text-gray-700 hover:text-yellow-500">Testimoni</a>
+                <a href="#kontak" class="block py-2 text-gray-700 hover:text-yellow-500">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-white" id="home">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di <span class="text-yellow-400">Desa Wisata Ciderum</span></h1>
+            <p class="text-xl md:text-2xl mb-8">Temukan pesona alam yang menakjubkan dan pengalaman budaya yang autentik</p>
+            <a href="#destinasi" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300 transform hover:scale-105 floating-btn">
+                Jelajahi Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Informasi Desa -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Mengenal Desa Ciderum</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="image/WhatsApp-Image-2023-11-20-at-18.03.53.jpeg" alt="Panorama desa Ciderum dengan pemandangan sawah berundak, pepohonan rindang, dan beberapa rumah tradisional di kejauhan" class="rounded-lg shadow-xl">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Desa Ciderum terletak di antara perbukitan yang hijau dengan udara sejuk dan alam yang asri. Desa ini menyimpan potensi wisata yang luar biasa dengan panorama alam yang memukau, budaya yang kaya, dan keramahan warganya.
+                    </p>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Dengan hamparan sawah berundak, perkebunan teh yang luas, air terjun tersembunyi, dan berbagai aktivitas budaya, Ciderum menawarkan pengalaman wisata desa yang tak terlupakan.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-700 text-sm font-semibold">LUAS WILAYAH</p>
+                            <p class="text-xl font-bold">3 km²</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-700 text-sm font-semibold">JUMLAH PENDUDUK</p>
+                            <p class="text-xl font-bold">11.000 Jiwa</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-700 text-sm font-semibold">KETINGGIAN</p>
+                            <p class="text-xl font-bold">800 mdpl</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-700 text-sm font-semibold">SUHU RATA-RATA</p>
+                            <p class="text-xl font-bold">22°C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinasi Wisata -->
+    <section class="py-20 bg-gray-50" id="destinasi">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Destinasi Wisata Unggulan</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Temukan berbagai destinasi menarik yang wajib Anda kunjungi saat berada di Desa Ciderum</p>            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">  
+                
+              <!-- Destinasi 1 -->
+                <a href="peternakan-domba.html" target="_blank" class="block">
+  <div class="bg-white rounded-xl overflow-hidden shadow-md card transition duration-300 hover:shadow-lg cursor-pointer">
+        <img src="image/kambing.jpeg" alt="Sawah berundak di Desa Ciderum dengan warna hijau yang mencolok dan kontur lahan yang indah" class="w-full h-56 object-cover">
+        <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Peternakan Domba</h3>
+            <p class="text-gray-600 mb-4">Cara Memelihara Domba yang baik dan benar.</p>
+            <div class="flex items-center">
+                <div class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2">Alam</div>
+                <div class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Edukasi</div>
+            </div>
+        </div>
+    </div>
+</a>
+
+                <!-- Destinasi 2 -->
+               <a href="pengelolaan sampah.html" target="_blank" class="block">
+    <div class="bg-white rounded-xl overflow-hidden shadow-md card transition duration-300 hover:shadow-lg cursor-pointer">
+        <img src="image/WhatsApp Image 2025-07-08 at 15.37.35.jpeg" alt="Sawah berundak di Desa Ciderum dengan warna hijau yang mencolok dan kontur lahan yang indah" class="w-full h-56 object-cover">
+        <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Pengelolaan Sampah</h3>
+            <p class="text-gray-600 mb-4">Cara mengelola sampah , memisahkan antara organik dan non organik.</p>
+            <div class="flex items-center">
+                <div class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2">Alam</div>
+                <div class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Edukasi</div>
+            </div>
+        </div>
+    </div>
+</a>
+
+               <!-- Destinasi 3 -->
+<a href="si-cabar cofee.html" target="_blank" class="block">
+    <div class="bg-white rounded-xl overflow-hidden shadow-md card transition duration-300 hover:shadow-lg cursor-pointer">
+        <img src="image/132981_medium.jpg" alt="Sawah berundak di Desa Ciderum dengan warna hijau yang mencolok dan kontur lahan yang indah" class="w-full h-56 object-cover">
+        <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Coffe Sicabar</h3>
+            <p class="text-gray-600 mb-4">menimakti makanan & minuman dengan pemandangan yang sangat indah  .</p>
+            <div class="flex items-center">
+                <div class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2">Kuliner</div>
+               
+            </div>
+        </div>
+    </div>
+</a>
+
+                  <!-- Destinasi 4 -->
+                <a href="ketahanan pangan.html" target="_blank" class="block">
+   <div class="bg-white rounded-xl overflow-hidden shadow-md card transition duration-300 hover:shadow-lg cursor-pointer">
+    <img src="image/WhatsApp Image 2025-07-08 at 15.37.34.jpeg" 
+         alt="Sawah berundak di Desa Ciderum dengan warna hijau yang mencolok dan kontur lahan yang indah" 
+         class="w-full h-56 object-cover">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Ketahanan Pangan</h3>
+        <p class="text-gray-600 mb-4">pemanfaatan pangan yang cukup, aman, dan bergizi untuk seluruh penduduknya, baik secara fisik maupun ekonomi, setiap saat.</p>
+        <div class="flex items-center">
+            <div class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Edukasi</div>
+        </div>
+    </div>
+</div>
+
+            
+            <div class="text-center mt-12">
+                <button id="loadMore" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300 transform hover:scale-105">
+                    Lihat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="py-32 parallax" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/WhatsApp Image 2025-07-08 at 14.42.33.jpg');">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Nikmati Pengalaman Wisata yang Berbeda</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Temukan keindahan alam, budaya, dan keramahan masyarakat Desa Ciderum dalam setiap kunjungan Anda</p>
+            <a href="#kontak" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300">
+                Hubungi Kami
+            </a>
+        </div>
+    </section>
+
+    <!-- Aktivitas Wisata -->
+    <section class="py-20 bg-white" id="aktivitas">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Aktivitas Menarik</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Berbagai kegiatan seru yang bisa Anda lakukan selama berada di Desa Ciderum</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Si Cabar cofee</h3>
+                    <p class="text-gray-600">pilihan dari aneka makanan dan minuman.</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Homestay</h3>
+                    <p class="text-gray-600">Menginap di rumah penduduk untuk merasakan kehidupan sehari-hari masyarakat desa.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-8 text-center">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Pembuatan Kerajinan</h3>
+                    <p class="text-gray-600">Belajar membuat kerajinan tangan, mengelola sampah, dan  memasak kuliner khas desa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Kontak -->
+    <section class="py-20 bg-white" id="kontak">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Hubungi Kami</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Untuk informasi lebih lanjut atau pemesanan kunjungan, silahkan menghubungi kami</p>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <form class="bg-gray-50 p-8 rounded-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nama</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Pesan</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Informasi Kontak</h3>
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Alamat</h4>                                    
+                                    <p class="text-gray-600">Desa Ciderum, Kecamatan Cikereteg, Kabupaten Bogor, Jawa Barat</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Telepon</h4>
+                                    <p class="text-gray-600">+62 858-8078-7067</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@wisataciderum.com</p>
+                                    <p class="text-gray-600">pengelola@wisataciderum.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Ikuti Kami di Media Sosial</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/desawisataciderum/" 
+                                target="_blank" 
+                              rel="noopener noreferrer"
+                                class="bg-gray-200 hover:bg-yellow-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center text-gray-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                                </a>
+                               <a href="https://www.instagram.com/desawisataciderum/" 
+                               target="_blank" 
+                              rel="noopener noreferrer" 
+                              class="bg-gray-200 hover:bg-yellow-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center text-gray-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 3.907.058h.355c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-3.907v-.355c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path></svg>
+                                </a>
+                               
+                                <a href="https://www.instagram.com/desawisataciderum/" 
+                                 target="_blank" 
+                              rel="noopener noreferrer" 
+                                class="bg-gray-200 hover:bg-yellow-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center text-gray-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="image/Logo cidereum.png" alt="Logo Desa Ciderum bergambar gunung dan sawah berwarna hijau dengan tulisan 'Ciderum'" class="h-12">
+                        <a href="#" class="ml-3 text-xl font-bold text-white">Ciderum<span class="text-yellow-400">Wisata</span></a>
+                    </div>
+                    <p class="max-w-xs">Menjadi destinasi wisata desa unggulan dengan mengangkat potensi lokal dan kearifan budaya masyarakat.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Tautan Cepat</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-yellow-400">Beranda</a></li>
+                            <li><a href="#destinasi" class="hover:text-yellow-400">Destinasi</a></li>
+                            <li><a href="#aktivitas" class="hover:text-yellow-400">Aktivitas</a></li>
+                            <li><a href="#kontak" class="hover:text-yellow-400">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Kebijakan</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-yellow-400">Syarat & Ketentuan</a></li>
+                            <li><a href="#" class="hover:text-yellow-400">Kebijakan Privasi</a></li>
+                            <li><a href="#" class="hover:text-yellow-400">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Kontak</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                +62 858-8078-7067
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                info@wisataciderum.com
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <a href="https://maps.app.goo.gl/zreSu1xbXuGxfspX7">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+
+                                Wisata Desa Ciderum, Bogor
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-green-700 mt-8 pt-8 text-sm text-center">
+                <p>© 2020 Wisata Desa Ciderum. Seluruh hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Whatsapp Button -->
+    <a href="https://wa.me/6281234567890" 
+     target="_blank" 
+     rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300 z-50">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.297.298-.496.099-.199.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-20 right-6 bg-yellow-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-600 transition duration-300 hidden z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            let menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            let backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        // Load More Button (Simulation)
+        document.getElementById('loadMore').addEventListener('click', function() {
+            alert('Fitur ini akan menampilkan lebih banyak destinasi wisata di Ciderum ketika diimplementasikan.');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for cards when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .testimoni-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+

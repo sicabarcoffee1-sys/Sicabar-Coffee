@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Wisata</title>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --secondary: #52b788;
+            --accent: #d8f3dc;
+            --text: #333;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ff8b22c1-3a90-4453-b6fa-63eaf95fdb0a.png') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            position: relative;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Destinasi Populer */
+        .destinations {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .destination-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .card-content .price {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* Galeri */
+        .gallery {
+            padding: 80px 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Testimonial */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial h4 {
+            color: var(--primary);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-nav button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-nav button:hover {
+            background: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">ExploreID</a>
+                <ul class="nav-links">
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Destinasi</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Tentang</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Jelajahi Keindahan Indonesia</h1>
+                <p>Temukan destinasi wisata terbaik di seluruh Nusantara dengan pengalaman tak terlupakan</p>
+                <a href="#" class="btn">Mulai Petualangan</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Destinasi Populer -->
+    <section class="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinasi Populer</h2>
+                <p>Rekomendasi tempat wisata terbaik di Indonesia yang wajib Anda kunjungi</p>
+            </div>
+            
+            <div class="destination-grid">
+                <!-- Card 1 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c0afe47a-b460-44dd-ad5a-0683bd34eb89.png" alt="Pantai Pink di Lombok dengan pasir berwarna merah muda dan air laut biru jernih" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Pantai Pink, Lombok</h3>
+                        <p>Pantai dengan pasir berwarna merah muda yang unik dan pemandangan laut yang memukau.</p>
+                        <div class="price">Mulai dari Rp 500.000</div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fe2fc893-d552-41fe-9b92-e732cb3832e0.png" alt="Pura Ulun Danu Bratan di Bali dengan danau dan pegunungan di latar belakang" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Pura Ulun Danu, Bali</h3>
+                        <p>Pura indah yang terletak di tepi Danau Bratan dengan pemandangan pegunungan yang spektakuler.</p>
+                        <div class="price">Mulai dari Rp 350.000</div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b4d5b0e8-63ac-47c8-bf0a-e449a3ba94c4.png" alt="Gunung Bromo di Jawa Timur dengan panorama sunrise dan lautan pasir" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Gunung Bromo, Jawa Timur</h3>
+                        <p>Nikmati keindahan sunrise dan pemandangan gunung berapi aktif yang menakjubkan.</p>
+                        <div class="price">Mulai dari Rp 400.000</div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/264b2c21-66b5-4da8-99fc-5e509df27762.png" alt="Raja Ampat dengan pulau-pulau kecil dan air laut biru kehijauan yang jernih" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Raja Ampat, Papua</h3>
+                        <p>Surga bagi penyelam dengan keanekaragaman hayati laut terbaik di dunia.</p>
+                        <div class="price">Mulai dari Rp 1.200.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galeri -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Wisata</h2>
+                <p>Kumpulan momen indah dari berbagai destinasi wisata di Indonesia</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/35b561ff-31eb-4d1d-ade8-877d6cb428bd.png" alt="Sunrise di Tanah Lot Bali dengan siluet pura di atas batu karang" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dfe1cbc8-2702-48be-ac4f-f99973e10fe2.png" alt="Air terjun Tumpak Sewu di Jawa Timur dengan pemandangan hijau dan kabut" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/596695f7-3c07-442c-9df0-d92db8f46eca.png" alt="Kampung Wae Rebo di Flores dengan rumah adat berbentuk kerucut" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd2721bb-cffe-409c-aa18-3ee8c6c1e959.png" alt="Pulau Komodo dengan panorama pantai dan hewan komodo di habitat aslinya" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/953b9003-5e69-43da-a10c-9402d617d1df.png" alt="Danau Toba di Sumatera Utara dengan pulau Samosir di tengahnya" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c9cba82f-f4b9-4498-ae13-5fe7183ccb07.png" alt="Candi Borobudur di Magelang dengan stupa dan panorama sunrise" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Pengalaman nyata dari para traveler yang telah berkunjung</p>
+            </div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/19350d1d-0024-4fc0-8875-d393534fe67a.png" alt="Foto profil Sarah, wanita berusia 28 tahun tersenyum" />
+                    <p>"Perjalanan ke Raja Ampat bersama ExploreID sungguh luar biasa. Pemandangan bawah lautnya tak terlupakan, layanan tour guide sangat profesional."</p>
+                    <h4>Sarah Wijaya</h4>
+                    <p>Travel Blogger</p>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9cca0c7c-b40a-45d6-8c71-edd7c02e1749.png" alt="Foto profil Andi, pria berusia 35 tahun memakai kacamata" />
+                    <p>"Pengalaman sunrise di Bromo sangat memukau. Tim ExploreID mengatur semuanya dengan sangat baik mulai dari transportasi hingga akomodasi."</p>
+                    <h4>Andi Setiawan</h4>
+                    <p>Fotografer</p>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b94492f3-3508-4e94-a277-4c07c2a060e1.png" alt="Foto profil Rina, wanita berusia 40 tahun dengan latar belakang pantai" />
+                    <p>"Liburan keluarga ke Bali menjadi lebih mudah dengan paket dari ExploreID. Anak-anak sangat menikmati kegiatan yang disediakan."</p>
+                    <h4>Rina Darmawan</h4>
+                    <p>Ibu Rumah Tangga</p>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button onclick="showTestimonial(0)">1</button>
+                    <button onclick="showTestimonial(1)">2</button>
+                    <button onclick="showTestimonial(2)">3</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>ExploreID adalah platform wisata terpercaya yang membantu Anda menemukan pengalaman terbaik di seluruh Indonesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Destinasi</a></li>
+                        <li><a href="#">Paket Wisata</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <p>Jl. Wisata Nusantara No. 123, Jakarta</p>
+                    <p>Email: info@exploreid.com</p>
+                    <p>Telepon: (021) 1234567</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 ExploreID. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Testimonial Slider
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('.testimonial');
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+        }
+        
+        // Auto slide testimonial
+        let currentTestimonial = 0;
+        const totalTestimonials = document.querySelectorAll('.testimonial').length;
+        
+        function autoSlideTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+        
+        setInterval(autoSlideTestimonial, 5000);
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle (would need additional HTML for mobile menu)
+        // This is a placeholder for future mobile menu implementation
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
